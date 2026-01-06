@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Eye, EyeOff, RefreshCw, Copy, X } from "lucide-react";
-import { UserContext } from "./useContextAPI/userContextApi";
-import getCurrentAdmin from "./config/api.js";
-import { regenerateApiKey } from "./config/api.js";
+import { UserContext } from "../useContextAPI/userContextApi.jsx";
+import getCurrentAdmin from "../config/api.js";
+import { regenerateApiKey } from "../config/api.js";
 
 export default function ApiKeys() {
     const { user, setUser } = useContext(UserContext);

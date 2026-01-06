@@ -1,4 +1,4 @@
-import ApiKeys from "./ApiKeys";
+import ApiKeys from "./pages/ApiKeys";
 import { Routes, Route } from "react-router-dom"
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
