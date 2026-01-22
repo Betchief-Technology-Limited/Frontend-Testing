@@ -8,34 +8,29 @@ export const UserProvider = ({ children }) => {
 
 
     // FETCH CURRENT ADMIN
-    useEffect(()=>{
-        const fetchMe = async () => {
-            try {
-                setLoading(true);
-    
-                const res = await fetch("http://localhost:3006/api/admin/me", {
-                    credentials: "include",
-                });
-    
-                if (!res.ok) {
-                    setUser(null);
-                    return;
-                }
-    
-                const data = await res.json();
-                setUser(data);
-            } catch (err) {
-                console.error("Fetch user error:", err);
-                setUser(null);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchMe();
-
-    }, [])
  
+    const fetchMe = async () => {
+        try {
+            setLoading(true);
+
+            const res = await fetch("http://localhost:3006/api/admin/me", {
+                credentials: "include",
+            });
+
+            if (!res.ok) {
+                setUser(null);
+                return;
+            }
+
+            const data = await res.json();
+            setUser(data);
+        } catch (err) {
+            console.error("Fetch user error:", err);
+            setUser(null);
+        } finally {
+            setLoading(false);
+        }
+    };
 
 
     const login = async (email, password) => {
@@ -65,6 +60,12 @@ export const UserProvider = ({ children }) => {
         setUser(null);
     };
 
+    // =========================
+    // AUTO LOAD USER ON REFRESH
+    // =========================
+    useEffect(() => {
+        fetchMe();
+    }, []);
 
     return (
         <UserContext.Provider

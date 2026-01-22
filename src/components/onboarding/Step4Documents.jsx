@@ -30,7 +30,7 @@ export default function Step4Documents() {
     async function handleContinue() {
         const uploads = organization.uploads || {};
 
-         // ✅ REQUIRED DOCUMENTS
+        // ✅ REQUIRED DOCUMENTS
         if (!uploads.certificateOfIncorporation || !uploads.directorsId) {
             setError(
                 "Please upload Certificate of Incorporation and Directors ID before continuing."
@@ -46,6 +46,7 @@ export default function Step4Documents() {
             <h2 className="text-lg font-semibold mb-4">
                 Upload Documents
             </h2>
+            {error && <p className="text-red-500 text-sm">{error}</p>}
 
             {[
                 { key: "certificateOfIncorporation", label: "Certificate of Incorporation" },

@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import Onboarding from "./pages/Onboarding";
 import CheckEmailForVerification from "./pages/CheckEmail";
 import UserVerification from "./pages/UserVerification";
+import WalletTransaction from "./pages/WalletTransaction";
 
 function App(){
   return(
@@ -15,6 +16,7 @@ function App(){
       <Route path="/check-email" element={<CheckEmailForVerification />} />
       <Route path="user-verification" element={<UserVerification />} />
       <Route path="/api-keys" element={<ApiKeys />} />
+      <Route path="wallet" element={<WalletTransaction />} />
     </Routes>
   )
 }
